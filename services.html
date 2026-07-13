@@ -1,0 +1,717 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Our Services | Francisco Painting and General Construction</title>
+    <!-- Tailwind CSS v3 CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter & Space Grotesk -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700;900&display=swap" rel="stylesheet" />
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+              display: ['Space Grotesk', 'sans-serif'],
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      /* Smooth transitions and custom scrollbar */
+      html {
+        scroll-behavior: smooth;
+      }
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #0a0a0a;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #262626;
+        border-radius: 4px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #f97316;
+      }
+      /* Custom background styling */
+      .bg-radial-glow {
+        background: radial-gradient(circle, rgba(249,115,22,0.15) 0%, rgba(0,0,0,0) 70%);
+      }
+      /* Fade animation for page elements */
+      .animate-fade-in {
+        animation: fadeIn 0.6s ease-out forwards;
+      }
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(12px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+    </style>
+  </head>
+  <body class="bg-neutral-950 text-white min-h-screen flex flex-col antialiased">
+
+  
+
+    <!-- 2. STICKY HEADER -->
+    <header id="main-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-transparent py-5">
+      <div class="mx-auto flex max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+        <!-- Logo / Brand -->
+        <a href="index.html" class="group flex items-center space-x-3 text-left focus:outline-none">
+          <div class="flex h-11 w-11 items-center justify-center rounded-xl bg-orange-500 text-neutral-950 transition-transform duration-300 group-hover:scale-105 group-hover:rotate-12 shadow-[0_0_15px_rgba(249,115,22,0.3)]">
+            <i data-lucide="hammer" class="h-6 w-6 stroke-[2.5]"></i>
+          </div>
+          <div>
+            <span class="block font-display text-lg font-black tracking-tight text-white uppercase md:text-xl leading-none">FRANCISCO</span>
+            <span class="block mt-0.5 font-sans text-[9px] font-bold tracking-[0.2em] text-orange-400 uppercase leading-none">PAINTING &amp; CONSTRUCTION</span>
+          </div>
+        </a>
+
+        <!-- Navigation Links -->
+        <nav class="hidden items-center space-x-1 md:flex">
+          <a href="index.html" class="relative px-4 py-2 font-sans text-sm font-semibold text-neutral-300 hover:text-white transition-colors duration-200">Home</a>
+          <a href="about.html" class="relative px-4 py-2 font-sans text-sm font-semibold text-neutral-300 hover:text-white transition-colors duration-200">About</a>
+          <a href="services.html" class="relative px-4 py-2 font-sans text-sm font-semibold text-orange-500 transition-colors duration-200">Services</a>
+          <a href="index.html#blog" class="relative px-4 py-2 font-sans text-sm font-semibold text-neutral-300 hover:text-white transition-colors duration-200">Blog</a>
+          <a href="index.html#contact" class="relative px-4 py-2 font-sans text-sm font-semibold text-neutral-300 hover:text-white transition-colors duration-200">Contact</a>
+        </nav>
+
+        <!-- Call / Estimate Action buttons -->
+        <div class="hidden items-center space-x-4 lg:flex">
+          <a href="tel:8005315755" class="flex items-center space-x-2 text-sm font-bold text-neutral-300 hover:text-white transition-colors">
+            <i data-lucide="phone" class="h-4 w-4 text-orange-500"></i>
+            <span>(800) 531-5755</span>
+          </a>
+          <a href="index.html#contact" class="rounded-xl bg-orange-500 px-5 py-2.5 font-sans text-xs font-bold text-neutral-950 uppercase tracking-wider transition-all duration-300 hover:bg-orange-400 hover:shadow-[0_0_20px_rgba(249,115,22,0.4)]">Get Free Estimate</a>
+        </div>
+
+        <!-- Mobile Drawer Toggle -->
+        <div class="flex items-center md:hidden">
+          <button onclick="toggleMobileMenu(true)" class="inline-flex items-center justify-center rounded-lg p-2 text-neutral-400 hover:bg-neutral-900 hover:text-white">
+            <i data-lucide="menu" class="h-6 w-6"></i>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- MOBILE DRAWER MENU OVERLAY -->
+    <div id="mobile-menu" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden flex-col justify-end md:hidden">
+      <div class="fixed bottom-0 right-0 top-0 z-50 flex w-full max-w-xs flex-col bg-neutral-950 p-6 shadow-2xl border-l border-neutral-900">
+        <div class="flex items-center justify-between pb-6 border-b border-neutral-900">
+          <span class="font-display text-lg font-black tracking-tight text-white">MENU</span>
+          <button onclick="toggleMobileMenu(false)" class="rounded-lg p-2 text-neutral-400 hover:bg-neutral-900 hover:text-white">
+            <i data-lucide="x" class="h-6 w-6"></i>
+          </button>
+        </div>
+
+        <nav class="mt-8 flex flex-col space-y-4">
+          <a href="index.html" class="text-left font-sans text-lg font-bold py-2 text-neutral-300 hover:text-white">Home</a>
+          <a href="about.html" class="text-left font-sans text-lg font-bold py-2 text-neutral-300 hover:text-white">About</a>
+          <a href="services.html" class="text-left font-sans text-lg font-bold py-2 text-orange-500 border-l-2 border-orange-500 pl-2">Services</a>
+          <a href="index.html#blog" class="text-left font-sans text-lg font-bold py-2 text-neutral-300 hover:text-white">Blog</a>
+          <a href="index.html#contact" class="text-left font-sans text-lg font-bold py-2 text-neutral-300 hover:text-white">Contact</a>
+        </nav>
+
+        <div class="mt-auto pt-6 border-t border-neutral-900 flex flex-col space-y-4">
+          <a href="tel:8005315755" class="flex items-center space-x-3 text-base font-bold text-neutral-300 hover:text-white">
+            <i data-lucide="phone" class="h-5 w-5 text-orange-500"></i>
+            <span>(800) 531-5755</span>
+          </a>
+          <a href="index.html#contact" class="w-full block rounded-xl bg-orange-500 py-3.5 text-center font-display text-sm font-bold text-neutral-950 uppercase tracking-wider transition-all hover:bg-orange-400">Get Free Estimate</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- MAIN VIEWS WRAPPER -->
+    <main class="flex-grow pt-24 animate-fade-in">
+
+      <!-- PAGE TITLE HEADER -->
+      <section class="relative bg-neutral-950 py-20 border-b border-neutral-900 text-center overflow-hidden">
+        <!-- Background Radial Glow -->
+        <div class="absolute inset-0 bg-radial-glow opacity-60"></div>
+        <div class="relative z-10 mx-auto max-w-4xl px-4">
+          <span class="inline-flex items-center space-x-2 rounded-full border border-orange-500/20 bg-orange-500/5 px-4 py-1 text-xs font-bold tracking-widest text-orange-400 uppercase mb-4">
+            <i data-lucide="hard-hat" class="h-3.5 w-3.5"></i>
+            <span>Our Expertise</span>
+          </span>
+          <h1 class="font-display text-4xl font-black tracking-tight text-white sm:text-5xl md:text-6xl uppercase">Our Professional Services</h1>
+          <p class="mx-auto mt-4 max-w-2xl font-sans text-sm text-neutral-350 leading-relaxed md:text-base">
+            We deliver top-tier residential and commercial construction, painting, and remodeling throughout North Hills and the wider San Fernando Valley.
+          </p>
+          <div class="mx-auto mt-6 h-1 w-16 rounded bg-orange-500"></div>
+        </div>
+      </section>
+
+      <!-- SERVICES CATEGORY FILTER & GRID -->
+      <section class="bg-neutral-950 py-24 relative">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          
+          <!-- Category Selector Buttons -->
+          <div class="flex flex-wrap items-center justify-center gap-3 border-b border-neutral-900 pb-10">
+            <button onclick="filterCategory('all')" id="cat-btn-all" class="rounded-xl px-6 py-3 font-display text-xs font-bold uppercase tracking-wider transition-all duration-300 bg-orange-500 text-neutral-950 shadow-md">
+              All Services
+            </button>
+            <button onclick="filterCategory('interior')" id="cat-btn-interior" class="rounded-xl px-6 py-3 font-display text-xs font-bold uppercase tracking-wider transition-all duration-300 bg-neutral-900 text-neutral-400 hover:text-white border border-neutral-850">
+              Interior Renovations
+            </button>
+            <button onclick="filterCategory('exterior')" id="cat-btn-exterior" class="rounded-xl px-6 py-3 font-display text-xs font-bold uppercase tracking-wider transition-all duration-300 bg-neutral-900 text-neutral-400 hover:text-white border border-neutral-850">
+              Exterior Solutions
+            </button>
+            <button onclick="filterCategory('structural')" id="cat-btn-structural" class="rounded-xl px-6 py-3 font-display text-xs font-bold uppercase tracking-wider transition-all duration-300 bg-neutral-900 text-neutral-400 hover:text-white border border-neutral-850">
+              Structural &amp; Additions
+            </button>
+          </div>
+
+          <!-- Services Grid -->
+          <div class="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+            
+            <!-- Card 1: General Contracting -->
+            <div data-category="structural" class="service-card group flex flex-col overflow-hidden rounded-2xl border border-neutral-900 bg-neutral-900/30 p-2 transition-all duration-300 hover:border-neutral-800">
+              <div class="relative h-56 overflow-hidden rounded-xl">
+                <img src="https://images.unsplash.com/photo-1581858726788-75bc0f6a952d?auto=format&fit=crop&w=800&q=80" alt="General Contractor" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                <div class="absolute inset-0 bg-gradient-to-t from-neutral-950/80 to-transparent"></div>
+                <div class="absolute bottom-4 left-4 flex h-10 w-10 items-center justify-center rounded-lg bg-orange-500 text-neutral-950">
+                  <i data-lucide="shield-check" class="h-5 w-5 stroke-[2.5]"></i>
+                </div>
+              </div>
+              <div class="flex-grow p-5 flex flex-col">
+                <span class="font-mono text-[9px] font-black tracking-widest text-orange-400 uppercase">Structural</span>
+                <h3 class="mt-1 font-display text-lg font-black text-white">General Contractor</h3>
+                <p class="mt-2 font-sans text-xs text-neutral-400 leading-relaxed flex-grow">
+                  Full supervision, blueprints coordination, permit acquisition, and material management complying with all North Hills building codes.
+                </p>
+                <div class="mt-5 pt-4 border-t border-neutral-900 flex items-center justify-between">
+                  <button onclick="openModal('general-contractor')" class="inline-flex items-center space-x-1.5 text-xs font-bold text-orange-500 hover:text-orange-400 uppercase">
+                    <span>Scope Details</span>
+                    <i data-lucide="arrow-right" class="h-3.5 w-3.5"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 2: Kitchen Remodeling -->
+            <div data-category="interior" class="service-card group flex flex-col overflow-hidden rounded-2xl border border-neutral-900 bg-neutral-900/30 p-2 transition-all duration-300 hover:border-neutral-800">
+              <div class="relative h-56 overflow-hidden rounded-xl">
+                <img src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=800&q=80" alt="Kitchen Remodel" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                <div class="absolute inset-0 bg-gradient-to-t from-neutral-950/80 to-transparent"></div>
+                <div class="absolute bottom-4 left-4 flex h-10 w-10 items-center justify-center rounded-lg bg-orange-500 text-neutral-950">
+                  <i data-lucide="chef-hat" class="h-5 w-5 stroke-[2.5]"></i>
+                </div>
+              </div>
+              <div class="flex-grow p-5 flex flex-col">
+                <span class="font-mono text-[9px] font-black tracking-widest text-orange-400 uppercase">Interior</span>
+                <h3 class="mt-1 font-display text-lg font-black text-white">Kitchen Remodeling</h3>
+                <p class="mt-2 font-sans text-xs text-neutral-400 leading-relaxed flex-grow">
+                  We design your dream kitchen with custom premium cabinetry, quartz island countertops, smart appliances, and decorative backsplashes.
+                </p>
+                <div class="mt-5 pt-4 border-t border-neutral-900 flex items-center justify-between">
+                  <button onclick="openModal('kitchen-remodeling')" class="inline-flex items-center space-x-1.5 text-xs font-bold text-orange-500 hover:text-orange-400 uppercase">
+                    <span>Scope Details</span>
+                    <i data-lucide="arrow-right" class="h-3.5 w-3.5"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 3: Bathroom Remodeling -->
+            <div data-category="interior" class="service-card group flex flex-col overflow-hidden rounded-2xl border border-neutral-900 bg-neutral-900/30 p-2 transition-all duration-300 hover:border-neutral-800">
+              <div class="relative h-56 overflow-hidden rounded-xl">
+                <img src="https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?auto=format&fit=crop&w=800&q=80" alt="Bathroom Remodeling" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                <div class="absolute inset-0 bg-gradient-to-t from-neutral-950/80 to-transparent"></div>
+                <div class="absolute bottom-4 left-4 flex h-10 w-10 items-center justify-center rounded-lg bg-orange-500 text-neutral-950">
+                  <i data-lucide="bath" class="h-5 w-5 stroke-[2.5]"></i>
+                </div>
+              </div>
+              <div class="flex-grow p-5 flex flex-col">
+                <span class="font-mono text-[9px] font-black tracking-widest text-orange-400 uppercase">Interior</span>
+                <h3 class="mt-1 font-display text-lg font-black text-white">Bathroom Remodeling</h3>
+                <p class="mt-2 font-sans text-xs text-neutral-400 leading-relaxed flex-grow">
+                  From zero-threshold walk-in tiled showers and organic soaking tubs to bespoke dual vanities and waterproofing.
+                </p>
+                <div class="mt-5 pt-4 border-t border-neutral-900 flex items-center justify-between">
+                  <button onclick="openModal('bathroom-remodeling')" class="inline-flex items-center space-x-1.5 text-xs font-bold text-orange-500 hover:text-orange-400 uppercase">
+                    <span>Scope Details</span>
+                    <i data-lucide="arrow-right" class="h-3.5 w-3.5"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 4: Garage Remodeling / ADUs -->
+            <div data-category="structural" class="service-card group flex flex-col overflow-hidden rounded-2xl border border-neutral-900 bg-neutral-900/30 p-2 transition-all duration-300 hover:border-neutral-800">
+              <div class="relative h-56 overflow-hidden rounded-xl">
+                <img src="https://images.unsplash.com/photo-1595428774223-ef52624120d2?auto=format&fit=crop&w=800&q=80" alt="Garage Remodel ADU" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                <div class="absolute inset-0 bg-gradient-to-t from-neutral-950/80 to-transparent"></div>
+                <div class="absolute bottom-4 left-4 flex h-10 w-10 items-center justify-center rounded-lg bg-orange-500 text-neutral-950">
+                  <i data-lucide="car" class="h-5 w-5 stroke-[2.5]"></i>
+                </div>
+              </div>
+              <div class="flex-grow p-5 flex flex-col">
+                <span class="font-mono text-[9px] font-black tracking-widest text-orange-400 uppercase">Structural</span>
+                <h3 class="mt-1 font-display text-lg font-black text-white">Garage Remodeling &amp; ADUs</h3>
+                <p class="mt-2 font-sans text-xs text-neutral-400 leading-relaxed flex-grow">
+                  Convert cold, empty garages into fully liveable studios, detached apartments (ADUs), robust home workshops, or offices.
+                </p>
+                <div class="mt-5 pt-4 border-t border-neutral-900 flex items-center justify-between">
+                  <button onclick="openModal('garage-remodeling')" class="inline-flex items-center space-x-1.5 text-xs font-bold text-orange-500 hover:text-orange-400 uppercase">
+                    <span>Scope Details</span>
+                    <i data-lucide="arrow-right" class="h-3.5 w-3.5"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 5: Home Additions -->
+            <div data-category="structural" class="service-card group flex flex-col overflow-hidden rounded-2xl border border-neutral-900 bg-neutral-900/30 p-2 transition-all duration-300 hover:border-neutral-800">
+              <div class="relative h-56 overflow-hidden rounded-xl">
+                <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=800&q=80" alt="Home Additions" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                <div class="absolute inset-0 bg-gradient-to-t from-neutral-950/80 to-transparent"></div>
+                <div class="absolute bottom-4 left-4 flex h-10 w-10 items-center justify-center rounded-lg bg-orange-500 text-neutral-950">
+                  <i data-lucide="plus-square" class="h-5 w-5 stroke-[2.5]"></i>
+                </div>
+              </div>
+              <div class="flex-grow p-5 flex flex-col">
+                <span class="font-mono text-[9px] font-black tracking-widest text-orange-400 uppercase">Structural</span>
+                <h3 class="mt-1 font-display text-lg font-black text-white">Home Additions</h3>
+                <p class="mt-2 font-sans text-xs text-neutral-400 leading-relaxed flex-grow">
+                  Build valuable equity and spacious comfort with secondary bedroom wings, master suite extensions, and floorplan enlargements.
+                </p>
+                <div class="mt-5 pt-4 border-t border-neutral-900 flex items-center justify-between">
+                  <button onclick="openModal('home-additions')" class="inline-flex items-center space-x-1.5 text-xs font-bold text-orange-500 hover:text-orange-400 uppercase">
+                    <span>Scope Details</span>
+                    <i data-lucide="arrow-right" class="h-3.5 w-3.5"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 6: Painting Services -->
+            <div data-category="exterior" class="service-card group flex flex-col overflow-hidden rounded-2xl border border-neutral-900 bg-neutral-900/30 p-2 transition-all duration-300 hover:border-neutral-800">
+              <div class="relative h-56 overflow-hidden rounded-xl">
+                <img src="https://images.unsplash.com/photo-1562259949-e8e7689d7828?auto=format&fit=crop&w=800&q=80" alt="Painting Services" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                <div class="absolute inset-0 bg-gradient-to-t from-neutral-950/80 to-transparent"></div>
+                <div class="absolute bottom-4 left-4 flex h-10 w-10 items-center justify-center rounded-lg bg-orange-500 text-neutral-950">
+                  <i data-lucide="paintbrush" class="h-5 w-5 stroke-[2.5]"></i>
+                </div>
+              </div>
+              <div class="flex-grow p-5 flex flex-col">
+                <span class="font-mono text-[9px] font-black tracking-widest text-orange-400 uppercase">Exterior</span>
+                <h3 class="mt-1 font-display text-lg font-black text-white">Painting Services</h3>
+                <p class="mt-2 font-sans text-xs text-neutral-400 leading-relaxed flex-grow">
+                  Premium weather-proof acrylics, deep power washing, caulking, priming, and clean detailing that lasts up to 12 years.
+                </p>
+                <div class="mt-5 pt-4 border-t border-neutral-900 flex items-center justify-between">
+                  <button onclick="openModal('painting-services')" class="inline-flex items-center space-x-1.5 text-xs font-bold text-orange-500 hover:text-orange-400 uppercase">
+                    <span>Scope Details</span>
+                    <i data-lucide="arrow-right" class="h-3.5 w-3.5"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- DYNAMIC SERVICES DETAIL MODAL -->
+      <div id="services-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-black/85 backdrop-blur-sm transition-opacity duration-300">
+        <div class="relative w-full max-w-3xl overflow-hidden rounded-3xl border border-neutral-800 bg-neutral-950 shadow-2xl animate-fade-in" onclick="event.stopPropagation()">
+          
+          <!-- Close button -->
+          <button onclick="closeModal()" class="absolute top-4 right-4 z-10 rounded-full bg-neutral-900/60 p-2.5 text-neutral-400 hover:bg-neutral-800 hover:text-white border border-neutral-800">
+            <i data-lucide="x" class="h-5 w-5"></i>
+          </button>
+
+          <div class="grid md:grid-cols-2">
+            <!-- Modal Image Column -->
+            <div class="relative h-48 md:h-full min-h-[220px]">
+              <img id="modal-img" src="" alt="Service Detail" class="absolute inset-0 h-full w-full object-cover" />
+              <div class="absolute inset-0 bg-gradient-to-t from-neutral-950 via-neutral-950/40 to-transparent"></div>
+            </div>
+
+            <!-- Modal Information Column -->
+            <div class="p-6 md:p-8 flex flex-col justify-between max-h-[85vh] overflow-y-auto">
+              <div>
+                <span id="modal-tag" class="font-mono text-[9px] font-black tracking-widest text-orange-400 uppercase">Category</span>
+                <h2 id="modal-title" class="mt-1 font-display text-2xl font-black text-white">Service Title</h2>
+                <p id="modal-desc" class="mt-4 font-sans text-xs leading-relaxed text-neutral-300">Detailed description will go here...</p>
+
+                <!-- Features list -->
+                <div class="mt-6">
+                  <h4 class="font-display text-xs font-bold tracking-wider text-orange-500 uppercase">Service Scope Includes:</h4>
+                  <ul id="modal-features" class="mt-3 space-y-2 text-xs text-neutral-450">
+                    <!-- Javascript inserted features -->
+                  </ul>
+                </div>
+
+                <!-- Quick FAQ item -->
+                <div class="mt-6 border-t border-neutral-900 pt-4">
+                  <h4 class="font-display text-xs font-bold text-neutral-200">Common Question:</h4>
+                  <p id="modal-faq-q" class="mt-1 font-sans text-[11px] font-semibold text-orange-400">Question goes here?</p>
+                  <p id="modal-faq-a" class="mt-1 font-sans text-[11px] leading-relaxed text-neutral-450">Answer goes here.</p>
+                </div>
+              </div>
+
+              <div class="mt-8 pt-4 border-t border-neutral-900 flex flex-col gap-3 sm:flex-row">
+                <a href="index.html#contact" class="flex-grow text-center rounded-xl bg-orange-500 py-3 font-display text-[11px] font-extrabold text-neutral-950 uppercase tracking-wider hover:bg-orange-400 transition-colors">
+                  Request Service Bid
+                </a>
+                <a href="tel:8005315755" class="px-5 text-center rounded-xl border border-neutral-800 bg-neutral-900 hover:border-neutral-700 py-3 font-display text-[11px] font-bold text-neutral-300 uppercase tracking-wider transition-colors">
+                  Call Now
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TRUST & ACCREDITATIONS CARDS -->
+      <section class="bg-neutral-900 py-24 border-t border-neutral-950">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
+          <span class="inline-flex items-center space-x-2 rounded-full border border-orange-500/20 bg-orange-500/5 px-4 py-1 text-xs font-bold tracking-widest text-orange-400 uppercase mb-4">
+            <i data-lucide="check-circle" class="h-3.5 w-3.5"></i>
+            <span>Guaranteed Quality</span>
+          </span>
+          <h2 class="font-display text-3xl font-black text-white sm:text-4xl">Our Licensing &amp; Protection Credentials</h2>
+          <p class="mx-auto mt-4 max-w-xl font-sans text-xs text-neutral-450 leading-relaxed">
+            We are fully bonded, carry a active California license, and hold $2M general liability policies protecting your residential equity from start to finish.
+          </p>
+          <div class="mx-auto mt-6 h-1 w-16 rounded bg-orange-500 mb-12"></div>
+
+          <div class="grid gap-6 sm:grid-cols-3">
+            <div class="bg-neutral-950 border border-neutral-850 p-6 rounded-2xl">
+              <div class="text-orange-500 mb-3 flex justify-center"><i data-lucide="shield" class="h-8 w-8"></i></div>
+              <h4 class="font-display text-sm font-bold text-white uppercase">CSLB Compliant License</h4>
+              <p class="mt-2 font-sans text-[11px] text-neutral-400">Full validation through California state registers for authorized residential construction works.</p>
+            </div>
+            <div class="bg-neutral-950 border border-neutral-850 p-6 rounded-2xl">
+              <div class="text-orange-500 mb-3 flex justify-center"><i data-lucide="users" class="h-8 w-8"></i></div>
+              <h4 class="font-display text-sm font-bold text-white uppercase">Active Worker's Comp</h4>
+              <p class="mt-2 font-sans text-[11px] text-neutral-400">Every member of our on-site team is completely insulated and covered against injuries.</p>
+            </div>
+            <div class="bg-neutral-950 border border-neutral-850 p-6 rounded-2xl">
+              <div class="text-orange-500 mb-3 flex justify-center"><i data-lucide="award" class="h-8 w-8"></i></div>
+              <h4 class="font-display text-sm font-bold text-white uppercase">$2M General Liability</h4>
+              <p class="mt-2 font-sans text-[11px] text-neutral-400">Total protective coverage for structure and surrounding properties during site construction.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CALL TO ACTION BANNER -->
+      <section class="relative bg-neutral-950 py-24 text-center overflow-hidden border-t border-neutral-900">
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-80 w-80 rounded-full bg-orange-500/5 blur-3xl pointer-events-none"></div>
+        <div class="relative z-10 mx-auto max-w-4xl px-4">
+          <h2 class="font-display text-3xl font-black tracking-tight text-white sm:text-4xl">Get An Itemized Proposal For Your Project</h2>
+          <p class="mx-auto mt-4 max-w-xl font-sans text-sm text-neutral-400 leading-relaxed">
+            Contact Francisco Painting and General Construction for a detailed, transparent, site-specific estimate.
+          </p>
+          <div class="mt-8 flex flex-col justify-center gap-4 sm:flex-row">
+            <a href="index.html#contact" class="rounded-xl bg-orange-500 px-8 py-4 font-display text-xs font-black uppercase tracking-wider text-neutral-950 shadow-lg shadow-orange-500/20 transition-all hover:bg-orange-400 hover:scale-[1.02]">
+              Schedule Free Estimate
+            </a>
+            <a href="tel:8005315755" class="rounded-xl border border-neutral-700 bg-neutral-900/60 backdrop-blur-sm px-8 py-4 font-display text-xs font-black uppercase tracking-wider text-white transition-all hover:border-neutral-500 hover:bg-neutral-850">
+              Call (800) 531-5755
+            </a>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- 3. PREMIUM FOOTER -->
+    <footer class="bg-neutral-950 border-t border-neutral-900 pt-16 pb-8 text-neutral-400 font-sans">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="grid gap-10 md:grid-cols-4">
+          <!-- Column 1: Brand Info -->
+          <div class="md:col-span-1 flex flex-col space-y-4">
+            <div class="flex items-center space-x-3 text-left">
+              <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-orange-500 text-neutral-950">
+                <i data-lucide="hammer" class="h-5.5 w-5.5 stroke-[2.5]"></i>
+              </div>
+              <div>
+                <span class="block font-display text-base font-black tracking-tight text-white uppercase leading-none">FRANCISCO</span>
+                <span class="block mt-0.5 font-sans text-[8px] font-bold tracking-[0.15em] text-orange-400 uppercase leading-none">PAINTING &amp; CONSTRUCTION</span>
+              </div>
+            </div>
+            <p class="font-sans text-xs leading-relaxed text-neutral-500">
+              Your premium, fully-licensed, and bonded residential contractor providing outstanding general building and custom paint results.
+            </p>
+            <div class="flex space-x-3.5 text-neutral-600">
+              <a href="#" class="hover:text-orange-500 transition-colors"><i data-lucide="facebook" class="h-4 w-4"></i></a>
+              <a href="#" class="hover:text-orange-500 transition-colors"><i data-lucide="instagram" class="h-4 w-4"></i></a>
+              <a href="#" class="hover:text-orange-500 transition-colors"><i data-lucide="twitter" class="h-4 w-4"></i></a>
+            </div>
+          </div>
+
+          <!-- Column 2: Quick Links -->
+          <div>
+            <h4 class="font-display text-xs font-bold text-white uppercase tracking-wider">Quick Navigation</h4>
+            <ul class="mt-4 space-y-2 text-xs">
+              <li><a href="index.html" class="hover:text-white transition-colors">Home Landing</a></li>
+              <li><a href="about.html" class="hover:text-white transition-colors">About Company</a></li>
+              <li><a href="services.html" class="hover:text-white transition-colors text-orange-400 font-semibold">Our Services</a></li>
+              <li><a href="index.html#blog" class="hover:text-white transition-colors">Tips &amp; Blog</a></li>
+              <li><a href="index.html#contact" class="hover:text-white transition-colors">Get Estimates</a></li>
+            </ul>
+          </div>
+
+          <!-- Column 3: Contact Info -->
+          <div>
+            <h4 class="font-display text-xs font-bold text-white uppercase tracking-wider">Contact Office</h4>
+            <ul class="mt-4 space-y-3 text-xs">
+              <li class="flex items-start space-x-2.5">
+                <i data-lucide="map-pin" class="h-4 w-4 text-orange-500 shrink-0 mt-0.5"></i>
+                <span class="text-neutral-500 leading-normal">North Hills, CA 91343<br/>Serving the San Fernando Valley</span>
+              </li>
+              <li class="flex items-center space-x-2.5">
+                <i data-lucide="phone" class="h-4 w-4 text-orange-500 shrink-0"></i>
+                <a href="tel:8005315755" class="hover:text-white transition-colors font-bold text-neutral-300">(800) 531-5755</a>
+              </li>
+              <li class="flex items-center space-x-2.5">
+                <i data-lucide="mail" class="h-4 w-4 text-orange-500 shrink-0"></i>
+                <a href="mailto:info@franciscoconstruction.com" class="hover:text-white transition-colors">info@franciscoconstruction.com</a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Column 4: License Details -->
+          <div>
+            <h4 class="font-display text-xs font-bold text-white uppercase tracking-wider">Credentials</h4>
+            <p class="mt-4 font-sans text-xs text-neutral-500 leading-relaxed">
+              CA License Board Registered Contractor.<br/>
+              Fully Bonded &bull; Complete General Liability &bull; Worker's Comp Active.
+            </p>
+            <div class="mt-4 inline-flex items-center space-x-1.5 text-orange-500 font-mono text-[9px] font-black tracking-widest uppercase">
+              <span class="flex h-2 w-2 rounded-full bg-green-500 animate-pulse"></span>
+              <span>CSLB Verified License</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-12 pt-8 border-t border-neutral-900 flex flex-col md:flex-row justify-between items-center text-xs text-neutral-600 gap-4">
+          <p>&copy; 2026 Francisco Painting &amp; General Construction. All Rights Reserved.</p>
+          <div class="flex space-x-4">
+            <a href="index.html#privacy" class="hover:text-neutral-400 transition-colors">Privacy Policy</a>
+            <a href="index.html#terms" class="hover:text-neutral-400 transition-colors">Terms of Service</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- SPEED HOTLINE FLOATING ACCORDS -->
+    <div class="fixed bottom-6 right-6 z-40 flex flex-col space-y-3">
+      <a href="tel:8005315755" class="flex h-12 w-12 items-center justify-center rounded-full bg-orange-500 text-neutral-950 shadow-2xl transition-all hover:scale-105 hover:bg-orange-400" title="Direct Phone Call">
+        <i data-lucide="phone" class="h-5 w-5 stroke-[2.2]"></i>
+      </a>
+    </div>
+
+    <!-- JAVASCRIPT SERVICES SCRIPT -->
+    <script>
+      const MODAL_DATA = {
+        'general-contractor': {
+          title: 'General Contractor Oversight',
+          tag: 'Structural & Management',
+          image: 'https://images.unsplash.com/photo-1581858726788-75bc0f6a952d?auto=format&fit=crop&w=800&q=80',
+          desc: 'Our premium general contracting service takes care of every building block from architectural drafting to direct final site handover. We manage high-performance subcontractors and secure municipal permits.',
+          features: [
+            'Total structural project coordination & direct oversight',
+            'Sourcing high-performance premium-grade materials',
+            'Full scheduling coordination with plumbing & electrical crews',
+            'Detailed permits filing with municipal building departments'
+          ],
+          faqQ: 'Is your license active in California?',
+          faqA: 'Absolutely. Francisco Painting & General Construction is fully verified under CSLB records with complete worker’s compensation and active general liability coverages.'
+        },
+        'kitchen-remodeling': {
+          title: 'Luxurious Kitchen Remodeling',
+          tag: 'Interior Redesign',
+          image: 'https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=800&q=80',
+          desc: 'We overhaul out-of-date configurations into breathtaking culinary workspaces. Our team removes load-bearing walls for airy layouts, styles bespoke quartz island structures, and installs detailed tile backsplashes.',
+          features: [
+            'Bespoke solid wood cabinetry installation',
+            'Marble & quartz island fabrication and levelling',
+            'Gas lines, ventilation & plumbing re-routes',
+            'Under-cabinet LED task lights and dimmer packages'
+          ],
+          faqQ: 'How long does a standard kitchen remodel take?',
+          faqA: 'Kitchen remodeling typically spans 4 to 8 weeks depending on layout shifts, structural wall adjustments, and custom timber cabinet lead times.'
+        },
+        'bathroom-remodeling': {
+          title: 'Bespoke Bathroom Spas',
+          tag: 'Interior Redesign',
+          image: 'https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?auto=format&fit=crop&w=800&q=80',
+          desc: 'Indulge in wet-room custom walk-in rain showers, elegant freestanding porcelain tubs, and custom double oak vanities with professional moisture-barrier sealing.',
+          features: [
+            'Zero-threshold glass walk-in shower creation',
+            'Premium liquid-membrane waterproofing behind tiles',
+            'Double marble-topped floating wood vanities',
+            'Luxury hardware fitments and smart back-lit mirrors'
+          ],
+          faqQ: 'How do you prevent moisture rot under tiles?',
+          faqA: 'We install premium water-tight backing boards and paint three layers of premium liquid-rubber sealant membranes before setting a single tile.'
+        },
+        'garage-remodeling': {
+          title: 'Garage Conversion & ADUs',
+          tag: 'Structural Extensions',
+          image: 'https://images.unsplash.com/photo-1595428774223-ef52624120d2?auto=format&fit=crop&w=800&q=80',
+          desc: 'Leverage the unused square footage of your car garages by building complete ADU cottages, high-end private gyms, detailed home workshops, or rental units.',
+          features: [
+            'Complete Accessory Dwelling Unit (ADU) legal framing',
+            'Multi-layer heavy-duty polyaspartic floor epoxy styling',
+            'High-grade thermal wall insulations & HVAC integration',
+            'Modern storage cabinets & built-in garage racks'
+          ],
+          faqQ: 'Do garage conversions require city permits?',
+          faqA: 'Yes. California has passed highly friendly ADU guidelines. We coordinate all architectural drafting blueprints and manage city building inspects perfectly.'
+        },
+        'home-additions': {
+          title: 'Structural Home Additions',
+          tag: 'Structural Extensions',
+          image: 'https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=800&q=80',
+          desc: 'Form premium master bedroom wings, beautiful patio sunrooms, and expand your family living rooms without the stress of moving and transaction fees.',
+          features: [
+            'Foundations digging, structural concrete & framing',
+            'Seamless roofline matching and flashing waterproofing',
+            'Master suite expansions with private plumbing access',
+            'Architectural drafting aligned with local CA codes'
+          ],
+          faqQ: 'How does the addition match the current house?',
+          faqA: 'Our team duplicates the exact layout profiles, architectural trims, siding, and external stucco colors so the new wing looks completely native.'
+        },
+        'painting-services': {
+          title: 'Premium Painting Services',
+          tag: 'Exterior & Interior Finishing',
+          image: 'https://images.unsplash.com/photo-1562259949-e8e7689d7828?auto=format&fit=crop&w=800&q=80',
+          desc: 'Elite architectural coatings. We pride ourselves on the ultimate prep-work—power-washing stucco, filling fractures, masking surfaces, sanding timber, and spraying weather-resistant acrylic coats.',
+          features: [
+            'Rigorous surface preparation, scraping, sanding & priming',
+            'Long-lasting acrylic sun-resistant outer coatings',
+            'Flawless indoor trim, mouldings, doors, and drywall paint',
+            'Premium eco-friendly zero-VOC interior paints'
+          ],
+          faqQ: 'How many years does professional painting last?',
+          faqA: 'Our premium paint jobs backed by detailed surface sanding and high-grade Sherwin-Williams paints look beautiful for 8 to 12 years.'
+        }
+      };
+
+      function filterCategory(cat) {
+        const buttons = ['all', 'interior', 'exterior', 'structural'];
+        buttons.forEach(buttonId => {
+          const btn = document.getElementById(`cat-btn-${buttonId}`);
+          if (buttonId === cat) {
+            btn.className = "rounded-xl px-6 py-3 font-display text-xs font-bold uppercase tracking-wider transition-all duration-300 bg-orange-500 text-neutral-950 shadow-md";
+          } else {
+            btn.className = "rounded-xl px-6 py-3 font-display text-xs font-bold uppercase tracking-wider transition-all duration-300 bg-neutral-900 text-neutral-400 hover:text-white border border-neutral-850";
+          }
+        });
+
+        const cards = document.querySelectorAll('.service-card');
+        cards.forEach(card => {
+          if (cat === 'all') {
+            card.style.display = 'flex';
+          } else {
+            const cardCat = card.getAttribute('data-category');
+            if (cardCat === cat) {
+              card.style.display = 'flex';
+            } else {
+              card.style.display = 'none';
+            }
+          }
+        });
+      }
+
+      function openModal(serviceId) {
+        const data = MODAL_DATA[serviceId];
+        if (!data) return;
+
+        document.getElementById('modal-img').src = data.image;
+        document.getElementById('modal-tag').innerText = data.tag;
+        document.getElementById('modal-title').innerText = data.title;
+        document.getElementById('modal-desc').innerText = data.desc;
+        document.getElementById('modal-faq-q').innerText = data.faqQ;
+        document.getElementById('modal-faq-a').innerText = data.faqA;
+
+        const featuresContainer = document.getElementById('modal-features');
+        featuresContainer.innerHTML = '';
+        data.features.forEach(f => {
+          const li = document.createElement('li');
+          li.className = "flex items-start space-x-2";
+          li.innerHTML = `<i data-lucide="check" class="h-4 w-4 text-orange-500 shrink-0 mt-0.5"></i><span>${f}</span>`;
+          featuresContainer.appendChild(li);
+        });
+
+        const modal = document.getElementById('services-modal');
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+        document.body.style.overflow = 'hidden';
+
+        lucide.createIcons();
+      }
+
+      function closeModal() {
+        const modal = document.getElementById('services-modal');
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+        document.body.style.overflow = 'auto';
+      }
+
+      // Close modal on escape or background click
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeModal();
+      });
+      document.getElementById('services-modal').onclick = closeModal;
+
+      function toggleMobileMenu(show) {
+        const menu = document.getElementById('mobile-menu');
+        if (show) {
+          menu.classList.remove('hidden');
+          menu.classList.add('flex');
+        } else {
+          menu.classList.add('hidden');
+          menu.classList.remove('flex');
+        }
+      }
+
+      window.addEventListener('scroll', () => {
+        const header = document.getElementById('main-header');
+        if (window.scrollY > 50) {
+          header.className = "fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-neutral-950/95 py-3 shadow-[0_4px_30px_rgba(0,0,0,0.3)] backdrop-blur-md border-b border-neutral-800";
+        } else {
+          header.className = "fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-transparent py-5";
+        }
+      });
+
+      window.addEventListener('DOMContentLoaded', () => {
+        let progress = 0;
+        const preloader = document.getElementById('preloader');
+        const preloaderBar = document.getElementById('preloader-bar');
+        const preloaderText = document.getElementById('preloader-text');
+
+        const interval = setInterval(() => {
+          progress += Math.floor(Math.random() * 20) + 10;
+          if (progress >= 100) {
+            progress = 100;
+            clearInterval(interval);
+            setTimeout(() => {
+              preloader.style.opacity = '0';
+              setTimeout(() => preloader.style.display = 'none', 500);
+            }, 300);
+          }
+          preloaderBar.style.width = progress + '%';
+          preloaderText.innerText = `ASSEMBLING PORTFOLIO... ${progress}%`;
+        }, 60);
+
+        lucide.createIcons();
+      });
+    </script>
+  </body>
+</html>
